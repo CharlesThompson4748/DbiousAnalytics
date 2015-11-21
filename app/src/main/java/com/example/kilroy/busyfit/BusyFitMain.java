@@ -33,7 +33,7 @@ public class BusyFitMain extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_busy_fit_main, menu);
         return true;
-    }z
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
