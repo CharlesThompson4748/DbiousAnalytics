@@ -12,12 +12,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 // We can create custom adapters
-class MyAdapter extends ArrayAdapter<String> {
+public class MyAdapter extends ArrayAdapter<String> {
 
     public MyAdapter(Context context, String[] values){
 
-        super(context, R.layout.row_layout_2, values);
+        super(context, R.layout.workout_list, values);
 
     }
 
@@ -37,22 +38,23 @@ class MyAdapter extends ArrayAdapter<String> {
 
         // inflate takes the resource to load, the parent that the resource may be
         // loaded into and true or false if we are loading into a parent view.
-        View theView = theInflater.inflate(R.layout.row_layout_2, parent, false);
+        View theView;
+        theView = theInflater.inflate(R.layout.workout_list, parent, false);
 
         // We retrieve the text from the array
         String tvShow = getItem(position);
 
         // Get the TextView we want to edit
-        TextView theTextView = (TextView) theView.findViewById(R.id.textView1);
+        TextView theTextView = (TextView) theView.findViewById(R.id.next_workout_list_item);
 
         // Put the next TV Show into the TextView
         theTextView.setText(tvShow);
 
-        // Get the ImageView in the layout
-        ImageView theImageView = (ImageView) theView.findViewById(R.id.imageView1);
-
-        // We can set a ImageView like this
-        theImageView.setImageResource(R.drawable.dot);
+//        // Get the ImageView in the layout
+//        ImageView theImageView = (ImageView) theView.findViewById(R.id.imageView1);
+//
+//        // We can set a ImageView like this
+//        theImageView.setImageResource(R.drawable.dot);
 
         return theView;
 

@@ -8,11 +8,12 @@
     <!-- Used to define a custom ListView row -->
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/workout_list_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="30sp"
         android:textStyle="bold"
         android:padding="15dp"
-        />
+    />
+
 </LinearLayout>
