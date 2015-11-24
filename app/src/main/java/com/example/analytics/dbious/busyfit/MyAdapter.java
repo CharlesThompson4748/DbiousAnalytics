@@ -45,10 +45,10 @@ public class MyAdapter extends ArrayAdapter<String> {
         String tvShow = getItem(position);
 
         // Get the TextView we want to edit
-        TextView theTextView = (TextView) theView.findViewById(R.id.next_workout_list_item);
+        //TextView theTextView = (TextView) theView.findViewById(R.id.next_workout_list_item);
 
         // Put the next TV Show into the TextView
-        theTextView.setText(tvShow);
+        //theTextView.setText(tvShow);
 
 //        // Get the ImageView in the layout
 //        ImageView theImageView = (ImageView) theView.findViewById(R.id.imageView1);
