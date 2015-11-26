@@ -10,7 +10,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
@@ -21,14 +21,23 @@
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="175dp"/>
 
+        </FrameLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom">
             <ListView
                 android:id="@+id/workout_list"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </FrameLayout>
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
 
     </LinearLayout>
 

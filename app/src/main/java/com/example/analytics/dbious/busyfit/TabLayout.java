@@ -43,6 +43,6 @@ public class TabLayout extends TabActivity {
                 .setContent(intent);
         mTabHost.addTab(spec);
 
-        mTabHost.setCurrentTab(1);
+        mTabHost.setCurrentTab(0);
     }
 }
