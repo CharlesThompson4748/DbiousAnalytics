@@ -15,7 +15,7 @@ public class Today extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.today_activity);
 
         // Simple array with a list of my favorite TV shows
         String[] favoriteTVShows = {"Pushing Daisies", "Better Off Ted",

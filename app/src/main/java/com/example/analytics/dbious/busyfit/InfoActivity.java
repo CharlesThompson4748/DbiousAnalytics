@@ -15,7 +15,7 @@ public class InfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.info_activity);
         // Simple array with a list of my favorite TV shows
         String[] favoriteTVShows = {"Futurama", "Better Off Ted",
                 "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",

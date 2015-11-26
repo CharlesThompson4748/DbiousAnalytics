@@ -23,7 +23,7 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.history_activity);
         // Simple array with a list of my favorite TV shows
 
         ArrayList<BarEntry> entries = new ArrayList<>();
