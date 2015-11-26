@@ -10,12 +10,13 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#e6f3bf">
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#d40b52f7">
+            android:background="#799045">
 
         </TabWidget>
 
@@ -47,13 +48,15 @@
             <ScrollView
                 android:id="@+id/scrollView"
                 android:layout_width="match_parent"
-                android:layout_height="196dp"
-                android:fillViewport="true" >
+                android:layout_height="200dp"
+                android:fillViewport="true"
+                android:background="#cbd6b5">
 
                 <ListView
                     android:id="@+id/workout_list"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:background="#dfc8d9"/>
 
             </ScrollView>
 

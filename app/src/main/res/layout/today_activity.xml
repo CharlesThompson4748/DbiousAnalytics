@@ -15,18 +15,20 @@
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#d40b52f7">
+            android:background="#614679">
 
         </TabWidget>
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#dfc8d9">
 
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="175dp" />
+                android:layout_height="175dp"
+                android:background="#dfc8d9"/>
 
         </FrameLayout>
 
@@ -34,12 +36,14 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom">
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="#dfc8d9">
             <ListView
                 android:id="@+id/workout_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:background="#dfc8d9"/>
         </LinearLayout>
 
     </LinearLayout>
