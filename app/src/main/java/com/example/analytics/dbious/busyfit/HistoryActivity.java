@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -58,6 +61,19 @@ public class HistoryActivity extends AppCompatActivity {
         ListView theListView = (ListView) findViewById(R.id.workout_list);
 
         theListView.setAdapter(theAdapter);
+        //theListView.setOnItemClickListener(new AdapterView.OnItemClickListener());
+
+        theListView.isClickable();
+        theListView.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+                Toast.makeText(getBaseContext(), "Long Clicked", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
+
     }
 }
 
