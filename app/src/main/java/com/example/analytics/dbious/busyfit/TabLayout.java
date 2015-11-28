@@ -45,7 +45,7 @@ public class TabLayout extends TabActivity {
                 .setContent(intent);
         mTabHost.addTab(spec);
 
-        mTabHost.setCurrentTab(0);
+        mTabHost.setCurrentTab(1);
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
