@@ -5,7 +5,8 @@
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:background="#ffd5d5">
 
     <LinearLayout
         android:orientation="vertical"
@@ -37,7 +38,8 @@
                 android:id="@+id/workout_list"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:background="#bfb4bc"/>
         </LinearLayout>
 
     </LinearLayout>
