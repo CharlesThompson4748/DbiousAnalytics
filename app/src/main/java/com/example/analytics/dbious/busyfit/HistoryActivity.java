@@ -19,6 +19,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by charlie on 11/24/2015.
@@ -28,6 +29,17 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
+        DatabaseHandler db = new DatabaseHandler(this);
+        //RemoteDatabaseHandler remoteDb = new RemoteDatabaseHandler("BusyFitUser");
+
+        final List<WorkoutSchedule> workoutEntries = db.getAllWorkoutScheduleEntries();
+        final ArrayList<String> theList = new ArrayList<String>();
+        final ArrayList<String> descriptionList = new ArrayList<String>();
+
+        for (int i = 0; i < workoutEntries .size(); i++) {
+            theList.add(workoutEntries .get(i).getName());
+            descriptionList.add(workoutEntries .get(i).getDesc());
+        }
 
         ArrayList<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(575f, 0));
@@ -57,21 +69,21 @@ public class HistoryActivity extends AppCompatActivity {
         barChart.setDescription("");
         barChart.setData(barData);
 
+        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theList);
 
-
-
-        String[] favoriteTVShows = {"South Park", "Better Off Ted",
-                "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",
-                "Breaking Bad", "The 400", "Alphas", "Life on Mars"};
-
-        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favoriteTVShows);
-
-        ListView theListView = (ListView) findViewById(R.id.workout_list);
+        final ListView theListView = (ListView) findViewById(R.id.workout_list);
 
         theListView.setAdapter(theAdapter);
-        //theListView.setOnItemClickListener(new AdapterView.OnItemClickListener());
-
         theListView.isClickable();
+
+        theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> theAdapter, View v,
+                                    int index, long id) {
+                Toast.makeText(getApplicationContext(), descriptionList.get(index), Toast.LENGTH_LONG).show();
+            }
+        });
+
         theListView.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override

@@ -2,6 +2,7 @@ package com.example.analytics.dbious.busyfit;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +45,7 @@ public class TabLayout extends TabActivity {
                 .setIndicator("Info")
                 .setContent(intent);
         mTabHost.addTab(spec);
-
+        mTabHost.setBackgroundColor(Color.parseColor("#303F9F"));
         mTabHost.setCurrentTab(1);
     }
     @Override
