@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
+import android.app.ActionBar;
 
 import java.util.logging.Handler;
 
@@ -18,8 +19,7 @@ public class TabLayout extends TabActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-
+        ActionBar actionBar = getActionBar();
         mTabHost = getTabHost();
         TabHost.TabSpec spec;
         Intent intent;

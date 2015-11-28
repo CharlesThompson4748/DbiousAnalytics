@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:fitsSystemWindows="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
+
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:background="#614679">
-
         </TabWidget>
+
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
@@ -29,7 +30,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="175dp"
                 android:background="#dfc8d9"/>
-
         </FrameLayout>
 
         <LinearLayout
@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
             android:background="#dfc8d9">
+
             <ListView
                 android:id="@+id/workout_list"
                 android:layout_width="wrap_content"
@@ -45,8 +46,5 @@
                 android:layout_gravity="bottom"
                 android:background="#dfc8d9"/>
         </LinearLayout>
-
     </LinearLayout>
-
-
 </TabHost>

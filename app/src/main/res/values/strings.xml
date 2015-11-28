@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BusyFit</string>
     <string name="action_settings">Settings</string>
+    <string name="action_user">User</string>
+    <string name="info_suggested">Suggested Diet: (# calories)</string>
+    <string name="info_entry">You ate something else?</string>
+    <string name="info_custom">Custom?</string>
 </resources>
