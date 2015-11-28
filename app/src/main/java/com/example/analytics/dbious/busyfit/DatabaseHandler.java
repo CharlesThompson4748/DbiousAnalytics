@@ -397,7 +397,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return entriesList;
     }
 
-
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {

@@ -10,17 +10,25 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Today extends AppCompatActivity {
+    private DatabaseHandler dbHandler;
+    private List<WorkoutSchedule> workoutList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.today_activity);
 
+        workoutList = dbHandler.getAllWorkoutScheduleEntries();
+        ArrayList<String> workoutNames = new ArrayList(workoutList.size());
+
+        for (int i = 0; i < workoutList.size(); i++){
+            workoutNames.set(i, workoutList.get(i).getName());
+        }
         // Simple array with a list of my favorite TV shows
-        String[] favoriteTVShows = {"Pushing Daisies", "Better Off Ted",
-                "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",
-                "Breaking Bad", "The 400", "Alphas", "Life on Mars"};
+        String[] favoriteTVShows = (String[]) workoutNames.toArray();
 
         ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favoriteTVShows);
 

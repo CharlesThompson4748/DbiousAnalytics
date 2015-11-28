@@ -21,13 +21,15 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_activity);
 
-        List workoutList = dbHandler.getAllWorkoutScheduleEntries();
-        // Simple array with a list of my favorite TV shows
-//        String[] favoriteTVShows = {"Futurama", "Better Off Ted",
-//                "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",
-//                "Breaking Bad", "The 400", "Alphas", "Life on Mars"};
 
-        ListAdapter theAdapter = new ArrayAdapter<List>(this, android.R.layout.simple_list_item_1, workoutList);
+
+
+        // Simple array with a list of my favorite TV shows
+        String[] favoriteTVShows = {"Futurama", "Better Off Ted",
+                "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",
+                "Breaking Bad", "The 400", "Alphas", "Life on Mars"};
+
+        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favoriteTVShows);
 
         ListView theListView = (ListView) findViewById(R.id.workout_list);
 
