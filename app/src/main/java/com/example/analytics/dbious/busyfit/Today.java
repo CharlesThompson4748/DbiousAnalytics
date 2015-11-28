@@ -25,25 +25,46 @@ public class Today extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.today_activity);
+        // Start Database handler, create a list with data from database, make an arrayList from it.
+        DatabaseHandler db = new DatabaseHandler(this);
+        //RemoteDatabaseHandler remoteDb = new RemoteDatabaseHandler("BusyFitUser");
 
-        //workoutList = dbHandler.getAllWorkoutScheduleEntries();
-        //workoutList.add("an item1");
-        //workoutList.add("an item2");
-        //workoutList.add("an item3");
-        //workoutList.add("an item4");
-        //ArrayList<String> workoutNames = new ArrayList(workoutList.size());
+        List<WorkoutSchedule> entries = db.getAllWorkoutScheduleEntries();
+        ArrayList<String> theList = new ArrayList<String>();
 
-        //for (int i = 0; i < workoutList.size(); i++){
-        //    workoutNames.set(i, workoutList.get(i).getName());
-        //}
-        // Simple array with a list of my favorite TV shows
-        //String[] favoriteTVShows = (String[]) workoutNames.toArray();
+        for (int i = 0; i < entries.size(); i++) {
+            theList.add(entries.get(i).getName());
+        }
+        theList.add("some thing else");
+        theList.add("some thing else2");
+        theList.add("some thing else3");
+        theList.add("some thing else4");
+        theList.add("some thing else5");
 
-        //ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, workoutList);
 
-        //ListView theListView = (ListView) findViewById(R.id.workout_list);
 
-        //theListView.setAdapter(theAdapter);
+
+        //The following uses the due_workouts_list.xml file to adapt the data from the map (TheList) into the ListView
+        //SimpleAdapter adapter = new SimpleAdapter(this, theList, R.layout.workout_list);
+        //entriesListView.setAdapter(adapter);
+
+        //entriesListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+//            public boolean onItemLongClick(AdapterView<?> adapter, View v,
+//                                           int index, long id) {
+//                //final TextView entriesLV = (TextView) v.findViewById(R.id.dueWorkouts);
+//                //final String test = entriesLV.getText().toString();
+//                //String val = c.getString(c.getColumnIndex("COLUMN_ID"));
+//                Toast.makeText(Overview.this, entriesListView.getItemAtPosition(index).toString(), Toast.LENGTH_LONG).show();
+//                return false;
+//            }
+//        });
+
+        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theList);
+
+        ListView theListView = (ListView) findViewById(R.id.workout_list);
+
+        theListView.setAdapter(theAdapter);
 
         //theListView.setOnItemClickListener(new AdapterView);
         //ArrayList<String> workoutList = new ArrayList<>();
