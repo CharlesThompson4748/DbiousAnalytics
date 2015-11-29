@@ -36,27 +36,6 @@ public class Today extends AppCompatActivity {
         final ArrayList<String> theList = new ArrayList<String>();
         final ArrayList<String> descriptionList = new ArrayList<String>();
 
-<<<<<<< HEAD
-        for (int iter = 0; iter < entries.size(); iter++) {
-            theList.add(entries.get(iter).getName());
-        }
-
-        //The following uses the due_workouts_list.xml file to adapt the data from the map (TheList) into the ListView
-        //SimpleAdapter adapter = new SimpleAdapter(this, theList, R.layout.workout_list);
-        //entriesListView.setAdapter(adapter);
-
-        //entriesListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
-//            public boolean onItemLongClick(AdapterView<?> adapter, View v,
-//                                           int index, long id) {
-//                //final TextView entriesLV = (TextView) v.findViewById(R.id.dueWorkouts);
-//                //final String test = entriesLV.getText().toString();
-//                //String val = c.getString(c.getColumnIndex("COLUMN_ID"));
-//                Toast.makeText(Overview.this, entriesListView.getItemAtPosition(index).toString(), Toast.LENGTH_LONG).show();
-//                return false;
-//            }
-//        });
-=======
         for (int i = 0; i < entries.size(); i++) {
             theList.add(entries.get(i).getName());
             descriptionList.add(entries.get(i).getDesc());
@@ -66,7 +45,6 @@ public class Today extends AppCompatActivity {
         theList.add("some thing else3");
         theList.add("some thing else4");
         theList.add("some thing else5");
->>>>>>> origin/master
 
         ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theList);
 

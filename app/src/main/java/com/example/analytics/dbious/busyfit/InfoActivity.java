@@ -25,14 +25,6 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info_activity);
 
-<<<<<<< HEAD
-        // Simple array with a list of my favorite TV shows
-        String[] favoriteTVShows = {"Futurama", "Better Off Ted",
-                "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",
-                "Breaking Bad", "The 400", "Alphas", "Life on Mars"};
-
-        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favoriteTVShows);
-=======
         DatabaseHandler db = new DatabaseHandler(this);
         //RemoteDatabaseHandler remoteDb = new RemoteDatabaseHandler("BusyFitUser");
         //this will be changes to get recipes
@@ -49,7 +41,6 @@ public class InfoActivity extends AppCompatActivity {
         theList.add("some thing else5");
 
         ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theList);
->>>>>>> origin/master
 
         ListView theListView = (ListView) findViewById(R.id.workout_list);
 

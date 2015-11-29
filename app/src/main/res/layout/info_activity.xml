@@ -23,12 +23,13 @@
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#cbd6b5">
 
             <VideoView
                 android:id="@+id/videoView"
                 android:layout_width="match_parent"
-                android:layout_height="175dp"/>
+                android:layout_height="250dp"/>
 
         </FrameLayout>
 
@@ -36,7 +37,8 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom">
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="#cbd6b5">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -65,12 +67,14 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/info_entry"
-                android:id="@+id/textView2" />
+                android:id="@+id/textView2"
+                android:background="#cbd6b5"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/editText" />
+                android:id="@+id/editText"
+                android:background="#cbd6b5"/>
 
         </LinearLayout>
 
