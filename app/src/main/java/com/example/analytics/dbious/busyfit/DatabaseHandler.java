@@ -163,74 +163,49 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + KEY_VIDEOURL + " TEXT"
             + ")";
 
-    private static final String INSERT_RECIPES =
-            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2001, 'Garlic & Chilli Zucchini Pasta', NULL, NULL, NULL, 'INGREDIENTS (Serves 2)\\\\n 1) 2 medium Zucchinis\\\\n 2) 2 Garlic cloves\\\\n 3) ½ cup fresh Basil Leaves\\\\n 4) 2 tsp. Olive Oil\\\\n 5) Juice from ½ Lemon\\\\n 6) Salt & Pepper, to taste\\\\n 7) 1 pinch Red Chilli Flakes\\\\n 8) 10 Shrimps\\\\n 9) 4 pieces Ham / Chicken Rolls\\\\n 10) A handful of Cherry Tomatoes\\\\n 11) 1 tbsp. Parmesan Cheese\\\\n\\\\r');\n" +
-            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2002, 'DIY Chipotle Burrito Bowl', 400, 40, 50, 'Ingredients\\\\n Cilantro Lime Rice\\\\n 2 cups brown rice\\\\n 2 bay leaves\\\\n salt for cooking\\\\n 2 tbsp fresh cilantro\\\\n 1 tbsp lemon juice\\\\n 1 tbsp lime juice\\\\n Garlic Beans\\\\n 1 can black or pinto beans\\\\n 1 garlic clove\\\\n ½ tsp dry oregano\\\\n ¼ tsp cumin\\\\n dash of chipotle pepper (optional)\\\\n Vegetables\\\\n 1 green bell pepper\\\\n 1 red bell pepper\\\\n 1 medium red onion\\\\n 1 tsp dry oregano\\\\n ½ tbsp grapeseed oil\\\\n ¼ tsp red pepper flakes (optional)\\\\n ½ tsp salt\\\\n ¼ tsp pepper\\\\n Toppings\\\\n fresh salsa\\\\n guacamole\\\\n vegan cheese\\\\n shredded lettuce\\\\n\\\\n Directions\\\\n Cilantro Lime Rice\\\\n Cook the rice according to the directions on the package (usually for 40-45 minutes). Before water starts to boil add salt and bay leaves.\\\\n Once the rice is cooked, place in a large bowl and add lemon juice, lime juice and cilantro. Mix well.\\\\n Garlic Beans\\\\n Combine all ingredients in a small pot and heat over medium heat for 5 minutes.\\\\n Vegetables\\\\n Cut peppers and onion into strings.\\\\n Heat oil in a large skillet.\\\\n Add red onion to the skillet and sauté for 3 minutes over medium/high heat.\\\\n Add cut peppers and cook for 5 more minutes.\\\\n Add the seasoning and continue cooking until the vegetables are soft (about 2 minutes).\\\\n Burrito Bowls\\\\n To assemble the bowls, simply divide the rice, beans and vegetables between 4 bowls and add the toppings.\\\\n');\n" +
-            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2003, 'Seven Layer Salad Recipe', 300, 25, 15, NULL);\n" +
-            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2004, 'Beth\\'s Chinese Chicken Salad', NULL, NULL, NULL, 'BETH\\'S CHINESE CHICKEN SALAD\\\\n Serves 4-6\\\\n\\\\n INGREDIENTS\\\\n 2 chicken breasts, bone in, skin on\\\\n 3 cups (450 g) of iceberg lettuce\\\\n 1½ (225 g)cups of green cabbage\\\\n 1½ (225 g) cups of purple cabbage\\\\n 1 cucumber, sliced into half moons\\\\n 3 carrots, peeled and cut into 2\\\" matchsticks\\\\n 1 cup (150 g) edamame beans, shelled\\\\n 1 red pepper, cut into matchsticks\\\\n ½ cup (75 g) unsalted peanuts\\\\n\\\\n DRESSING:\\\\n 1/3 cup (80 g) smooth peanut butter\\\\n 4 tbsp (60 ml) rice wine vinegar\\\\n Zest and juice of 1 lime\\\\n 3 tbsp (45 ml) warm water\\\\n 1 tsp (5 ml) soy sauce\\\\n 1 tsp (5 ml) honey\\\\n 1 tsp (5 ml) fresh ginger\\\\n 1 garlic clove\\\\n 2 tsp (10 ml) toasted sesame oil\\\\n Pinch of red pepper flakes\\\\n Salt and pepper to taste\\\\n 3 tbsp (45 ml) grapeseed oil\\\\n\\\\n METHOD:\\\\n Preheat oven to 425F (218 C).\\\\n Season chicken with salt and pepper and roast for 25-30 mins until cooked through. Set aside and allow to cool. To make the dressing, combine the peanut butter, vinegar, lime zest, lime juice and water, whisk until smooth. Then add the soy sauce, honey, ginger, garlic, sesame oil, red pepper flakes, salt and pepper. Whisk to combine. Then slowly add the oil, while whisking, to combine. Set dressing aside. Slice lettuce and cabbage into ribbons, slice cucumber into half moons, carrots and red pepper into matchsticks. Thaw edamame if frozen. Shred chicken with a fork. Place lettuce and cabbage on a plate, add veggies, chicken and toss with the dressing. Garnish with 2 tbsp of peanuts. Enjoy!\\\\n');\n";
+    private static final String[] INSERT_RECIPE = {
+            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2001, 'Garlic & Chilli Zucchini Pasta', NULL, NULL, NULL, 'INGREDIENTS (Serves 2)\\\\n 1) 2 medium Zucchinis\\\\n 2) 2 Garlic cloves\\\\n 3) ½ cup fresh Basil Leaves\\\\n 4) 2 tsp. Olive Oil\\\\n 5) Juice from ½ Lemon\\\\n 6) Salt & Pepper, to taste\\\\n 7) 1 pinch Red Chilli Flakes\\\\n 8) 10 Shrimps\\\\n 9) 4 pieces Ham / Chicken Rolls\\\\n 10) A handful of Cherry Tomatoes\\\\n 11) 1 tbsp. Parmesan Cheese\\\\n\\\\r');",
+            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2002, 'DIY Chipotle Burrito Bowl', 400, 40, 50, 'Ingredients\\\\n Cilantro Lime Rice\\\\n 2 cups brown rice\\\\n 2 bay leaves\\\\n salt for cooking\\\\n 2 tbsp fresh cilantro\\\\n 1 tbsp lemon juice\\\\n 1 tbsp lime juice\\\\n Garlic Beans\\\\n 1 can black or pinto beans\\\\n 1 garlic clove\\\\n ½ tsp dry oregano\\\\n ¼ tsp cumin\\\\n dash of chipotle pepper (optional)\\\\n Vegetables\\\\n 1 green bell pepper\\\\n 1 red bell pepper\\\\n 1 medium red onion\\\\n 1 tsp dry oregano\\\\n ½ tbsp grapeseed oil\\\\n ¼ tsp red pepper flakes (optional)\\\\n ½ tsp salt\\\\n ¼ tsp pepper\\\\n Toppings\\\\n fresh salsa\\\\n guacamole\\\\n vegan cheese\\\\n shredded lettuce\\\\n\\\\n Directions\\\\n Cilantro Lime Rice\\\\n Cook the rice according to the directions on the package (usually for 40-45 minutes). Before water starts to boil add salt and bay leaves.\\\\n Once the rice is cooked, place in a large bowl and add lemon juice, lime juice and cilantro. Mix well.\\\\n Garlic Beans\\\\n Combine all ingredients in a small pot and heat over medium heat for 5 minutes.\\\\n Vegetables\\\\n Cut peppers and onion into strings.\\\\n Heat oil in a large skillet.\\\\n Add red onion to the skillet and sauté for 3 minutes over medium/high heat.\\\\n Add cut peppers and cook for 5 more minutes.\\\\n Add the seasoning and continue cooking until the vegetables are soft (about 2 minutes).\\\\n Burrito Bowls\\\\n To assemble the bowls, simply divide the rice, beans and vegetables between 4 bowls and add the toppings.\\\\n');",
+            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2003, 'Seven Layer Salad Recipe', 300, 25, 15, NULL);",
+            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2004, 'Beth\\'s Chinese Chicken Salad', NULL, NULL, NULL, 'BETH\\'S CHINESE CHICKEN SALAD\\\\n Serves 4-6\\\\n\\\\n INGREDIENTS\\\\n 2 chicken breasts, bone in, skin on\\\\n 3 cups (450 g) of iceberg lettuce\\\\n 1½ (225 g)cups of green cabbage\\\\n 1½ (225 g) cups of purple cabbage\\\\n 1 cucumber, sliced into half moons\\\\n 3 carrots, peeled and cut into 2\\\" matchsticks\\\\n 1 cup (150 g) edamame beans, shelled\\\\n 1 red pepper, cut into matchsticks\\\\n ½ cup (75 g) unsalted peanuts\\\\n\\\\n DRESSING:\\\\n 1/3 cup (80 g) smooth peanut butter\\\\n 4 tbsp (60 ml) rice wine vinegar\\\\n Zest and juice of 1 lime\\\\n 3 tbsp (45 ml) warm water\\\\n 1 tsp (5 ml) soy sauce\\\\n 1 tsp (5 ml) honey\\\\n 1 tsp (5 ml) fresh ginger\\\\n 1 garlic clove\\\\n 2 tsp (10 ml) toasted sesame oil\\\\n Pinch of red pepper flakes\\\\n Salt and pepper to taste\\\\n 3 tbsp (45 ml) grapeseed oil\\\\n\\\\n METHOD:\\\\n Preheat oven to 425F (218 C).\\\\n Season chicken with salt and pepper and roast for 25-30 mins until cooked through. Set aside and allow to cool. To make the dressing, combine the peanut butter, vinegar, lime zest, lime juice and water, whisk until smooth. Then add the soy sauce, honey, ginger, garlic, sesame oil, red pepper flakes, salt and pepper. Whisk to combine. Then slowly add the oil, while whisking, to combine. Set dressing aside. Slice lettuce and cabbage into ribbons, slice cucumber into half moons, carrots and red pepper into matchsticks. Thaw edamame if frozen. Shred chicken with a fork. Place lettuce and cabbage on a plate, add veggies, chicken and toss with the dressing. Garnish with 2 tbsp of peanuts. Enjoy!\');"
+    };
 
-    private static final String INSERT_RECIPE_VIDEO =
-            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2001, 'https://youtu.be/pb__4zkNXrg');\n" +
-            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2002, 'https://youtu.be/PNAm7z9gOzk');\n" +
-            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2003, 'https://youtu.be/JAxcnlHSl6Q?list=PLFfHPE7nZa5Ce5EA3G2xCOA5RwXyCZUrJ');\n";
+    private  static final String[] INSERT_RECIPE_VIDEO = {
+            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2001, 'https://youtu.be/pb__4zkNXrg');",
+            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2002, 'https://youtu.be/PNAm7z9gOzk');",
+            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2003, 'https://youtu.be/JAxcnlHSl6Q?list=PLFfHPE7nZa5Ce5EA3G2xCOA5RwXyCZUrJ');"
+    };
 
+    private static final String[] INSERT_MUSCLE_GROUP = {
+            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (1, 'arms');",
+            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (2, 'legs');",
+            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (3, 'glutes');",
+            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (4, 'abs');"
+    };
 
-    private static final String INSERT_MUSCLE_GROUP =
-            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (1, 'arms');\n" +
-            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (2, 'legs');\n" +
-            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (3, 'glutes');\n" +
-            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (4, 'abs');\n";
+    private static final String[] INSERT_WORKOUT_SCHEDULE = {
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1001, 'Raise the Roof', 4, 3, 2, 1, 2, 5, 'While marching in place, push toward the ceiling with your palms up and thumbs almost touching your shoulders. Make it harder by holding water bottles. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1002, 'Tricept Kick', 2, 2, 3, 1, 2, 5, 'While marching in place, bend at the hips, about 45 degrees. Bend your elbows, then extend them behind you as if you are lifting weights. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1003, 'The Hulk', 4, 3, 3, 1, 2, 6, 'Keep marching and leaning. With your elbows bent and fists together in front, move your arms back like wings. Try to touch your shoulder blades together. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1004, 'Hamstring Curl', 2, 2, 2, 2, 1, 5, 'Bend arms at the elbow. Bring one foot up toward your rear end while straightening your arms so that your hands are down when your foot is up. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1005, 'Knee Lift', 4, 3, 3, 2, 4, 6, 'Bend arms at the elbow. Bring one foot up toward your rear end while straightening your arms so that your hands are down when your foot is up. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1006, 'Hallelujah', 2, 2, 2, 1, 2, 7, 'Sweep arms above your head and down again as you step side-to-side. Actually yelling \'\'Hallelujah!\'\' is optional. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1007, 'Punching', 4, 3, 3, 1, NULL, 6, 'While rocking foot to foot, punch with alternating arms. To reduce elbow stress, try not to fully straighten your arm. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1008, 'Desk Pushup', 2, 3, 2, 1, 4, 7, 'Place hands on edge of desk, shoulder width apart, legs out behind you. Push off with as much force as you can. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1009, 'Side Lunge', 2, 2, 3, 2, NULL, 7, 'Place hands on edge of desk, shoulder width apart, legs out behind you. Push off with as much force as you can. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1010, 'Jump Squats', 2, 2, 2, 2, NULL, 10, 'Make sure you have space in front of you. Bend into a half-squat with your arms behind you, then jump and swing your arms up as if you\\'re celebrating. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1011, 'Char Dips', 2, 3, 3, 4, 3, 7, 'With your legs out in front of you, grab the edge of a chair (or desk) and lift yourself down and back up. At the end, you\\'ll be conveniently back in your seat. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1012, 'Walking', 4, 5, 3, 2, NULL, 4, 'Lap your block or a floor of your office. Try for a pace of 100 steps per minute, which is easy if you don\'t stop to play with tchotchkes on other people\'s desks. ');",
+            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1013, 'BaSuCo', 4, 5, 3, 2, NULL, 4, 'Nod your head. Like this. Nod your Head. Like This. Lemme see you nod your head.');"
+    };
 
-    private static final String INSERT_WORKOUT_SCHEDULE =
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1001, 'Raise the Roof', 4, 3, 2, 1, 2, 5, 'While marching in place, push toward the ceiling with your palms up and thumbs almost touching your shoulders. Make it harder by holding water bottles. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1002, 'Tricept Kick', 2, 2, 3, 1, 2, 5, 'While marching in place, bend at the hips, about 45 degrees. Bend your elbows, then extend them behind you as if you are lifting weights. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1003, 'The Hulk', 4, 3, 3, 1, 2, 6, 'Keep marching and leaning. With your elbows bent and fists together in front, move your arms back like wings. Try to touch your shoulder blades together. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1004, 'Hamstring Curl', 2, 2, 2, 2, 1, 5, 'Bend arms at the elbow. Bring one foot up toward your rear end while straightening your arms so that your hands are down when your foot is up. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1005, 'Knee Lift', 4, 3, 3, 2, 4, 6, 'Bend arms at the elbow. Bring one foot up toward your rear end while straightening your arms so that your hands are down when your foot is up. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1006, 'Hallelujah', 2, 2, 2, 1, 2, 7, 'Sweep arms above your head and down again as you step side-to-side. Actually yelling \\'\\'Hallelujah!\\'\\' is optional. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1007, 'Punching', 4, 3, 3, 1, NULL, 6, 'While rocking foot to foot, punch with alternating arms. To reduce elbow stress, try not to fully straighten your arm. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1008, 'Desk Pushup', 2, 3, 2, 1, 4, 7, 'Place hands on edge of desk, shoulder width apart, legs out behind you. Push off with as much force as you can. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1009, 'Side Lunge', 2, 2, 3, 2, NULL, 7, 'Place hands on edge of desk, shoulder width apart, legs out behind you. Push off with as much force as you can. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1010, 'Jump Squats', 2, 2, 2, 2, NULL, 10, 'Make sure you have space in front of you. Bend into a half-squat with your arms behind you, then jump and swing your arms up as if you\\'re celebrating. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1011, 'Char Dips', 2, 3, 3, 4, 3, 7, 'With your legs out in front of you, grab the edge of a chair (or desk) and lift yourself down and back up. At the end, you\\'ll be conveniently back in your seat. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1012, 'Walking', 4, 5, 3, 2, NULL, 4, 'Lap your block or a floor of your office. Try for a pace of 100 steps per minute, which is easy if you don\\'t stop to play with tchotchkes on other people\\'s desks. ');\n" +
-            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1013, 'BaSuCo', 4, 5, 3, 2, NULL, 4, 'Nod your head. Like this. Nod your Head. Like This. Lemme see you nod your head.');\n";
+    private static  List<String> Base_SQL_Insertions;
 
-//    private static final String CREATE_THINGY = "START TRANSACTION;\n" +
-//            "USE BusyFit;\n" +
-//            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2001, 'Garlic & Chilli Zucchini Pasta', NULL, NULL, NULL, 'INGREDIENTS (Serves 2)\\\\n 1) 2 medium Zucchinis\\\\n 2) 2 Garlic cloves\\\\n 3) ½ cup fresh Basil Leaves\\\\n 4) 2 tsp. Olive Oil\\\\n 5) Juice from ½ Lemon\\\\n 6) Salt & Pepper, to taste\\\\n 7) 1 pinch Red Chilli Flakes\\\\n 8) 10 Shrimps\\\\n 9) 4 pieces Ham / Chicken Rolls\\\\n 10) A handful of Cherry Tomatoes\\\\n 11) 1 tbsp. Parmesan Cheese\\\\n\\\\r');\n" +
-//            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2002, 'DIY Chipotle Burrito Bowl', 400, 40, 50, 'Ingredients\\\\n Cilantro Lime Rice\\\\n 2 cups brown rice\\\\n 2 bay leaves\\\\n salt for cooking\\\\n 2 tbsp fresh cilantro\\\\n 1 tbsp lemon juice\\\\n 1 tbsp lime juice\\\\n Garlic Beans\\\\n 1 can black or pinto beans\\\\n 1 garlic clove\\\\n ½ tsp dry oregano\\\\n ¼ tsp cumin\\\\n dash of chipotle pepper (optional)\\\\n Vegetables\\\\n 1 green bell pepper\\\\n 1 red bell pepper\\\\n 1 medium red onion\\\\n 1 tsp dry oregano\\\\n ½ tbsp grapeseed oil\\\\n ¼ tsp red pepper flakes (optional)\\\\n ½ tsp salt\\\\n ¼ tsp pepper\\\\n Toppings\\\\n fresh salsa\\\\n guacamole\\\\n vegan cheese\\\\n shredded lettuce\\\\n\\\\n Directions\\\\n Cilantro Lime Rice\\\\n Cook the rice according to the directions on the package (usually for 40-45 minutes). Before water starts to boil add salt and bay leaves.\\\\n Once the rice is cooked, place in a large bowl and add lemon juice, lime juice and cilantro. Mix well.\\\\n Garlic Beans\\\\n Combine all ingredients in a small pot and heat over medium heat for 5 minutes.\\\\n Vegetables\\\\n Cut peppers and onion into strings.\\\\n Heat oil in a large skillet.\\\\n Add red onion to the skillet and sauté for 3 minutes over medium/high heat.\\\\n Add cut peppers and cook for 5 more minutes.\\\\n Add the seasoning and continue cooking until the vegetables are soft (about 2 minutes).\\\\n Burrito Bowls\\\\n To assemble the bowls, simply divide the rice, beans and vegetables between 4 bowls and add the toppings.\\\\n');\n" +
-//            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2003, 'Seven Layer Salad Recipe', 300, 25, 15, NULL);\n" +
-//            "INSERT INTO RECIPE (recipesID, name, calories, protein, carb, instructions) VALUES (2004, 'Beth\\'s Chinese Chicken Salad', NULL, NULL, NULL, 'BETH\\'S CHINESE CHICKEN SALAD\\\\n Serves 4-6\\\\n\\\\n INGREDIENTS\\\\n 2 chicken breasts, bone in, skin on\\\\n 3 cups (450 g) of iceberg lettuce\\\\n 1½ (225 g)cups of green cabbage\\\\n 1½ (225 g) cups of purple cabbage\\\\n 1 cucumber, sliced into half moons\\\\n 3 carrots, peeled and cut into 2\\\" matchsticks\\\\n 1 cup (150 g) edamame beans, shelled\\\\n 1 red pepper, cut into matchsticks\\\\n ½ cup (75 g) unsalted peanuts\\\\n\\\\n DRESSING:\\\\n 1/3 cup (80 g) smooth peanut butter\\\\n 4 tbsp (60 ml) rice wine vinegar\\\\n Zest and juice of 1 lime\\\\n 3 tbsp (45 ml) warm water\\\\n 1 tsp (5 ml) soy sauce\\\\n 1 tsp (5 ml) honey\\\\n 1 tsp (5 ml) fresh ginger\\\\n 1 garlic clove\\\\n 2 tsp (10 ml) toasted sesame oil\\\\n Pinch of red pepper flakes\\\\n Salt and pepper to taste\\\\n 3 tbsp (45 ml) grapeseed oil\\\\n\\\\n METHOD:\\\\n Preheat oven to 425F (218 C).\\\\n Season chicken with salt and pepper and roast for 25-30 mins until cooked through. Set aside and allow to cool. To make the dressing, combine the peanut butter, vinegar, lime zest, lime juice and water, whisk until smooth. Then add the soy sauce, honey, ginger, garlic, sesame oil, red pepper flakes, salt and pepper. Whisk to combine. Then slowly add the oil, while whisking, to combine. Set dressing aside. Slice lettuce and cabbage into ribbons, slice cucumber into half moons, carrots and red pepper into matchsticks. Thaw edamame if frozen. Shred chicken with a fork. Place lettuce and cabbage on a plate, add veggies, chicken and toss with the dressing. Garnish with 2 tbsp of peanuts. Enjoy!\\\\n');\n" +
-//            "COMMIT;\n" +
-//            "START TRANSACTION;\n" +
-//            "USE BusyFit;\n" +
-//            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2001, 'https://youtu.be/pb__4zkNXrg');\n" +
-//            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2002, 'https://youtu.be/PNAm7z9gOzk');\n" +
-//            "INSERT INTO RECIPE_VIDEO (recipeID, videoURL) VALUES (2003, 'https://youtu.be/JAxcnlHSl6Q?list=PLFfHPE7nZa5Ce5EA3G2xCOA5RwXyCZUrJ');\n" +
-//            "COMMIT;\n" +
-//            "START TRANSACTION;\n" +
-//            "USE BusyFit;\n" +
-//            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (1, 'arms');\n" +
-//            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (2, 'legs');\n" +
-//            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (3, 'glutes');\n" +
-//            "INSERT INTO MUSCLE_GROUP (muscleID, muscleGroup) VALUES (4, 'abs');\n" +
-//            "COMMIT;\n" +
-//            "START TRANSACTION;\n" +
-//            "USE BusyFit;\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1001, 'Raise the Roof', 4, 3, 2, 1, 2, 5, 'While marching in place, push toward the ceiling with your palms up and thumbs almost touching your shoulders. Make it harder by holding water bottles. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1002, 'Tricept Kick', 2, 2, 3, 1, 2, 5, 'While marching in place, bend at the hips, about 45 degrees. Bend your elbows, then extend them behind you as if you are lifting weights. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1003, 'The Hulk', 4, 3, 3, 1, 2, 6, 'Keep marching and leaning. With your elbows bent and fists together in front, move your arms back like wings. Try to touch your shoulder blades together. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1004, 'Hamstring Curl', 2, 2, 2, 2, 1, 5, 'Bend arms at the elbow. Bring one foot up toward your rear end while straightening your arms so that your hands are down when your foot is up. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1005, 'Knee Lift', 4, 3, 3, 2, 4, 6, 'Bend arms at the elbow. Bring one foot up toward your rear end while straightening your arms so that your hands are down when your foot is up. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1006, 'Hallelujah', 2, 2, 2, 1, 2, 7, 'Sweep arms above your head and down again as you step side-to-side. Actually yelling \\'\\'Hallelujah!\\'\\' is optional. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1007, 'Punching', 4, 3, 3, 1, NULL, 6, 'While rocking foot to foot, punch with alternating arms. To reduce elbow stress, try not to fully straighten your arm. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1008, 'Desk Pushup', 2, 3, 2, 1, 4, 7, 'Place hands on edge of desk, shoulder width apart, legs out behind you. Push off with as much force as you can. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1009, 'Side Lunge', 2, 2, 3, 2, NULL, 7, 'Place hands on edge of desk, shoulder width apart, legs out behind you. Push off with as much force as you can. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1010, 'Jump Squats', 2, 2, 2, 2, NULL, 10, 'Make sure you have space in front of you. Bend into a half-squat with your arms behind you, then jump and swing your arms up as if you\\'re celebrating. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1011, 'Char Dips', 2, 3, 3, 4, 3, 7, 'With your legs out in front of you, grab the edge of a chair (or desk) and lift yourself down and back up. At the end, you\\'ll be conveniently back in your seat. ');\n" +
-//            "INSERT INTO WORKOUT_SCHEDULE (workoutID, name, weekPart, dayPart, hourPart, muscleGroupID1, muscleGroupID2, calPerTime, desc) VALUES (1012, 'Walking', 4, 5, 3, 2, NULL, 4, 'Lap your block or a floor of your office. Try for a pace of 100 steps per minute, which is easy if you don\\'t stop to play with tchotchkes on other people\\'s desks. ');\n" +
-//            "COMMIT;";
+    private void ProcessBatchOfSqlStatements(String[] sqlStmts, SQLiteDatabase db) {
+        for (int iter = 0; iter < sqlStmts.length; iter++){
+            db.execSQL(sqlStmts[iter]);
+        }
+    }
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -245,7 +220,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             values.put(KEY_FNAME, entry.getFName());
             values.put(KEY_LNAME, entry.getLName());
             values.put(KEY_EMAIL, entry.getEmail());
-
             db.insert(TABLE_BUSYFITUSER, null, values);
             db.close();
             return true;
@@ -265,7 +239,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             values.put(KEY_CALORIES, entry.getCalories());
             values.put(KEY_PROTEIN, entry.getProtein());
             values.put(KEY_CARBS, entry.getCarbs());
-
             db.insert(TABLE_CALORIE_INTAKE, null, values);
             db.close();
             return true;
@@ -281,7 +254,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(KEY_MUSCLEID, entry.getMuscleID());
             values.put(KEY_MUSCLEGROUP, entry.getMuscleGroup());
-
             db.insert(TABLE_MUSCLE_GROUP, null, values);
             db.close();
             return true;
@@ -297,7 +269,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             ContentValues values = new ContentValues();
             values.put(KEY_USERID, entry.getUserID());
             values.put(KEY_FOODID, entry.getFoodID());
-
             db.insert(TABLE_USER_DIET, null, values);
             db.close();
             return true;
@@ -331,7 +302,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             values.put(KEY_WOSCHEDID, entry.getWOSchedID());
             values.put(KEY_TIME, entry.getTime());
             values.put(KEY_CALPERTIME, entry.getCalPerTime());
-
             db.insert(TABLE_WORKOUT, null, values);
             db.close();
             return true;
@@ -352,7 +322,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             values.put(KEY_MUSCLEGROUPID1, entry.getMuscleGroupID1());
             values.put(KEY_MUSCLEGROUPID2, entry.getMuscleGroupID2());
             values.put(KEY_DESC, entry.getDesc());
-
             db.insert(TABLE_WORKOUT_SCHEDULE, null, values);
             db.close();
             return true;
@@ -361,45 +330,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             return false;
         }
     }
-    /*
-    public boolean createRecipe(Recipe entry)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        try {
-            ContentValues values = new ContentValues();
-            values.put(KEY_RECIPESID, entry.getRecipesID());
-            values.put(KEY_NAME, entry.getName());
-            values.put(KEY_CALORIES, entry.getCalories());
-            values.put(KEY_PROTEIN, entry.getProtein());
-            values.put(KEY_CARBS, entry.getCarbs());
-            values.put(KEY_INSTRUCTIONS, entry.getInstructions());
-
-            db.insert(TABLE_RECIPE, null, values);
-            db.close();
-            return true;
-        }
-        catch(Exception e) {
-            return false;
-        }
-    }*/
-    /*public boolean createRecipeVideo(RecipeVideo entry)
-    {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        try {
-            ContentValues values = new ContentValues();
-            values.put(KEY_RECIPEID, entry.getRecipeId());
-            values.put(KEY_VIDEOURL, entry.getVideoUrl());
-
-            db.insert(TABLE_RECIPE_VIDEO, null, values);
-            db.close();
-            return true;
-        }
-        catch(Exception e) {
-            return false;
-        }
-    }*/
 
     //Get all workout schedule entries in a List Array
     public List<WorkoutSchedule> getAllWorkoutScheduleEntries()
@@ -407,9 +337,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         List<WorkoutSchedule> entriesList = new ArrayList<WorkoutSchedule>();
         ArrayList<String> entriesNames = new ArrayList<>(entriesList.size());
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_WORKOUT_SCHEDULE;
+        String selectQuery = "SELECT * FROM " + TABLE_WORKOUT_SCHEDULE;
 
         SQLiteDatabase db = this.getWritableDatabase();
+
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         if (cursor.moveToFirst()) {
@@ -423,10 +354,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 entry.setMuscleGroupID1(Integer.parseInt(cursor.getString(5)));
                 entry.setMuscleGroupID2(Integer.parseInt(cursor.getString(6)));
                 entry.setDesc(cursor.getString(7));
-
                 entriesList.add(entry);
             } while (cursor.moveToNext());
         }
+        cursor.close();
 
         return entriesList;
     }
@@ -444,10 +375,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_RECIPE);
         db.execSQL(CREATE_TABLE_RECIPE_VIDEO);
         //DB- Insertions
-        //db.execSQL(INSERT_RECIPES);
-        //db.execSQL(INSERT_RECIPE_VIDEO);
-        db.execSQL(INSERT_WORKOUT_SCHEDULE);
-        db.execSQL(INSERT_MUSCLE_GROUP);
+            //ProcessBatchOfSqlStatements(INSERT_RECIPE, db);
+            //ProcessBatchOfSqlStatements(INSERT_RECIPE_VIDEO, db);
+        ProcessBatchOfSqlStatements(INSERT_WORKOUT_SCHEDULE, db);
+        ProcessBatchOfSqlStatements(INSERT_MUSCLE_GROUP, db);
     }
 
     // Upgrading database

@@ -35,17 +35,9 @@ public class Today extends AppCompatActivity {
         List<WorkoutSchedule> entries = db.getAllWorkoutScheduleEntries();
         ArrayList<String> theList = new ArrayList<String>();
 
-        for (int i = 0; i < entries.size(); i++) {
-            theList.add(entries.get(i).getName());
+        for (int iter = 0; iter < entries.size(); iter++) {
+            theList.add(entries.get(iter).getName());
         }
-        theList.add("some thing else");
-        theList.add("some thing else2");
-        theList.add("some thing else3");
-        theList.add("some thing else4");
-        theList.add("some thing else5");
-
-
-
 
         //The following uses the due_workouts_list.xml file to adapt the data from the map (TheList) into the ListView
         //SimpleAdapter adapter = new SimpleAdapter(this, theList, R.layout.workout_list);
