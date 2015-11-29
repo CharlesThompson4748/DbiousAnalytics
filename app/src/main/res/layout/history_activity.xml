@@ -11,12 +11,12 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#ff5555">
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="#ff5555">
+            android:layout_height="wrap_content">
 
         </TabWidget>
         <FrameLayout
@@ -26,7 +26,7 @@
             <com.github.mikephil.charting.charts.BarChart
                 android:id="@+id/chart"
                 android:layout_width="match_parent"
-                android:layout_height="175dp" />
+                android:layout_height="250dp" />
 
         </FrameLayout>
         <LinearLayout

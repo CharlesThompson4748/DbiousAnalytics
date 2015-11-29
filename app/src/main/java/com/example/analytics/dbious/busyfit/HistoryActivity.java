@@ -19,8 +19,10 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by charlie on 11/24/2015.
@@ -30,43 +32,61 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.history_activity);
-        // Simple array with a list of my favorite TV shows
+        DatabaseHandler db = new DatabaseHandler(this);
+        //RemoteDatabaseHandler remoteDb = new RemoteDatabaseHandler("BusyFitUser");
+
+        final List<WorkoutSchedule> workoutEntries = db.getAllWorkoutScheduleEntries();
+        final ArrayList<String> theList = new ArrayList<String>();
+        final ArrayList<String> descriptionList = new ArrayList<String>();
+
+        for (int i = 0; i < workoutEntries .size(); i++) {
+            theList.add(workoutEntries .get(i).getName());
+            descriptionList.add(workoutEntries .get(i).getDesc());
+        }
 
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(4f, 0));
-        entries.add(new BarEntry(8f, 1));
-        entries.add(new BarEntry(6f, 2));
-        entries.add(new BarEntry(8f, 3));
-        entries.add(new BarEntry(12f, 4));
-        entries.add(new BarEntry(9f, 5));
+        entries.add(new BarEntry(575f, 0));
+        entries.add(new BarEntry(860f, 1));
+        entries.add(new BarEntry(615f, 2));
+        entries.add(new BarEntry(820f, 3));
+        entries.add(new BarEntry(1100f, 4));
+        entries.add(new BarEntry(910f, 5));
+        entries.add(new BarEntry(750f, 6));
 
-        BarDataSet dataSet = new BarDataSet(entries, "# of calls");
-
+        BarDataSet dataSet = new BarDataSet(entries, "# of calories");
+        dataSet.setColors(ColorTemplate.PASTEL_COLORS);
         ArrayList<String> labels = new ArrayList<String>();
-        labels.add("October");
-        labels.add("September");
-        labels.add("December");
-        labels.add("January");
-        labels.add("February");
-        labels.add("March");
+        labels.add("Today");
+        labels.add("Tue");
+        labels.add("Wed");
+        labels.add("Thur");
+        labels.add("Fri");
+        labels.add("Sat");
+        labels.add("Sun");
 
         BarData barData = new BarData(labels, dataSet);
         BarChart barChart = (BarChart)findViewById(R.id.chart);
+        barChart.animateX(2000);
+        barChart.animateY(2000);
+        barChart.animateXY(2000, 2000);
+        barChart.setDescription("");
         barChart.setData(barData);
 
+        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theList);
 
-        String[] favoriteTVShows = {"South Park", "Better Off Ted",
-                "Twin Peaks", "Freaks and Geeks", "Orphan Black", "Walking Dead",
-                "Breaking Bad", "The 400", "Alphas", "Life on Mars"};
-
-        ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favoriteTVShows);
-
-        ListView theListView = (ListView) findViewById(R.id.workout_list);
+        final ListView theListView = (ListView) findViewById(R.id.workout_list);
 
         theListView.setAdapter(theAdapter);
-        //theListView.setOnItemClickListener(new AdapterView.OnItemClickListener());
-
         theListView.isClickable();
+
+        theListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> theAdapter, View v,
+                                    int index, long id) {
+                Toast.makeText(getApplicationContext(), descriptionList.get(index), Toast.LENGTH_LONG).show();
+            }
+        });
+
         theListView.setOnLongClickListener(new View.OnLongClickListener() {
 
             @Override
