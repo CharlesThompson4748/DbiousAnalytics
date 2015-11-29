@@ -1,6 +1,7 @@
 package com.example.analytics.dbious.busyfit;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,11 +41,6 @@ public class Today extends AppCompatActivity {
             theList.add(entries.get(i).getName());
             descriptionList.add(entries.get(i).getDesc());
         }
-        theList.add("some thing else");
-        theList.add("some thing else2");
-        theList.add("some thing else3");
-        theList.add("some thing else4");
-        theList.add("some thing else5");
 
         ListAdapter theAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theList);
 
